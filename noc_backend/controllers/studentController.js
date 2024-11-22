@@ -153,17 +153,28 @@ module.exports.upload = multer({ storage: storage });
 
 module.exports.uploadNoc = async (req, res) => {
     try {
+        // Check if a file is uploaded
         if (!req.file) {
             return res.status(400).json({ message: "No file uploaded" });
         }
+
         const studentId = req.body.userId;
-        const nocFileUrl = req.file.path; // Get file path
-        // Save the NOC file URL to the database for the student (associate with student ID)
+        const nocFileUrl = req.file.path; // Get file path from uploaded file
+
+        // Fetch the student from the database
         const student = await Student.findById(studentId);
-        // console.log(student);
-        if(student.nocFileUrl.toString().length > 1){
-            return res.status(400).json({"message": "NOC already uploaded"});
+
+        // Check if the student exists
+        if (!student) {
+            return res.status(404).json({ message: "Student not found" });
         }
+
+        // Check if the NOC file URL already exists
+        if (student.nocFileUrl && student.nocFileUrl.toString().length > 0) {
+            return res.status(400).json({ message: "NOC already uploaded" });
+        }
+
+        // Update the student's NOC file URL
         await Student.findByIdAndUpdate(studentId, { nocFileUrl });
 
         res.status(200).json({ message: "File uploaded successfully!" });
@@ -171,7 +182,7 @@ module.exports.uploadNoc = async (req, res) => {
         console.error("Error uploading file: ", error);
         res.status(500).json({ error: "Error uploading file" });
     }
-}
+};
 
 module.exports.downloadNocPhysical = async (req, res) => {
     try {

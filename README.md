@@ -30,3 +30,6 @@ To set up the backend locally, follow these steps:
 
 ```bash
 git clone https://github.com/pnishant08/ERP_PORTAL.git
+
+
+Email:pnishant0824@gmail.com

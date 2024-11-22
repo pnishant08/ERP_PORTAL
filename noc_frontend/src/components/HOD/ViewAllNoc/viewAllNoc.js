@@ -11,7 +11,7 @@ function ViewAllNoc(){
             try {
                 setIsLoading(true);
                 const data = await hodService.viewAllNOCs();
-                console.log(data.data);
+                // console.log(data.data);
                 const filteredNoc = data.data.filter(noc => noc.ctc < 7);
                 setNOCs(filteredNoc);
             } catch (error) {

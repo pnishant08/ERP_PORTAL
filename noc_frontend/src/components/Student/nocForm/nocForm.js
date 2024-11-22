@@ -34,7 +34,7 @@ function NocForm({userId}) {
                 <div class="card">
                     <h2>Request NOC</h2>
                     <form onSubmit={handleNoc}>
-                        <input type="text" value={ctc} onChange={(e) => setCtc(e.target.value)} id="ctc" name="ctc" placeholder="Enter the CTC in LPA" required />
+                        <input type="text" value={ctc} onChange={(e) => setCtc(e.target.value)} id="ctc" name="ctc" placeholder="Enter the CTC" required />
                         <input type="text" value={company} onChange={(e) => setCompany(e.target.value)} id="company" name="company" placeholder="Comapny Name" required />
                         <label>Joining Date</label>
                         <input type="date" value={joiningDate} onChange={(e) => setJoiningDate(e.target.value)} id="joiningDate" name="joiningDate" />

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:8000/api/student';
+const baseURL = `{process.env.REACT_APP_API_URL}/api/student`;
 
 const studentService = {
 

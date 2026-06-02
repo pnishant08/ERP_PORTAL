@@ -1,7 +1,7 @@
 import axios from 'axios';
 import studentService from './studentService';
 
-const baseURL = 'http://localhost:8000/api/student';
+const baseURL = `${process.env.REACT_APP_API_URL}/api/student`;
 
 const nocSerivce = {
     uploadNoc: async (formData) => {

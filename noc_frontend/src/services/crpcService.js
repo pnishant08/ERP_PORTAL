@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:8000/api/crpc';
+const baseURL = `${process.env.REACT_APP_API_URL}/api/crpc`;
 
 const CRPCService = {
 

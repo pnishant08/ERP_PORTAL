@@ -18,9 +18,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 
 app.use(cors({
-    origin: ['http://localhost:3000', 
-             "https://erp-portal-mqet2em8v-nishant-pandey-s-projects.vercel.app"
-            ],
+    origin: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ["Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "Accept", "Origin", "Cache-Control", "X-Requested-With"],
     credentials: true, 

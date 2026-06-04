@@ -18,7 +18,7 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 
 app.use(cors({
-    origin: true,
+    origin: "https://erp-portal-hazel.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ["Content-Type", "Content-Length", "Accept-Encoding", "X-CSRF-Token", "Authorization", "Accept", "Origin", "Cache-Control", "X-Requested-With"],
     credentials: true, 
@@ -37,7 +37,7 @@ app.use(session({
         collectionName: "session"
     }),
     cookie: {
-        secure: false, 
+        secure: true, 
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000
     }
